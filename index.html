@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <!-- ลิงก์ CDN ของ Tailwind CSS เวอร์ชันล่าสุด -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.0.0/dist/full.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        /* การเคลื่อนไหวเมื่อผู้ใช้คลิกปุ่ม */
+        .btn:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+       
+        .card {
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* กำหนดพื้นหลังเป็นภาพจาก URL */
+        body {
+            background-image: url('https://cdn.pixabay.com/photo/2019/03/11/00/15/rainbow-4047523_1280.jpg');
+    background-size: 100% 100%; /* ปรับให้ภาพเต็มหน้าจอ */
+    background-position: center;
+    background-repeat: no-repeat;
+        }
+
+        /* สไตล์ของการ์ด */
+        .card {
+            background-color: rgba(255, 255, 255, 0.85); /* เพิ่มความโปร่งใส */
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- ใช้ flex เพื่อจัดเนื้อหาให้อยู่กึ่งกลางทั้งในแนวตั้งและแนวนอน -->
+    <div class="flex justify-center items-center min-h-screen">
+        <!-- ใช้ card ของ DaisyUI สำหรับการแสดงผล -->
+        <div class="card w-96 shadow-xl rounded-xl p-6 space-y-6">
+            <h2 class="text-center text-4xl font-semibold text-blue-600">
+                ค้นหาสภาพอากาศ
+            </h2>
+            
+            <div class="form-control">
+                <input id="city" type="text" placeholder="กรุณากรอกชื่อเมือง" class="input input-bordered input-primary w-full mb-4 p-3 text-lg rounded-lg focus:ring-2 focus:ring-blue-500"/>
+            </div>
+            
+            <button id="search-btn" class="btn bg-cyan-300 text-white w-full mx-auto hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 p-3 rounded-lg text-lg">
+                ค้นหาสภาพอากาศ
+            </button>
+            
+            <div id="weather-info" class="mt-4 hidden bg-green-100 p-4 rounded-xl text-center shadow-lg transition-all">
+                <h3 id="city-name" class="text-2xl font-bold text-gray-700"></h3>
+                <p id="temperature" class="text-lg text-gray-800"></p>
+                <p id="description" class="text-lg text-gray-600"></p>
+                <p id="humidity" class="text-lg text-gray-600"></p>
+                <p id="wind" class="text-lg text-gray-600"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
