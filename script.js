@@ -1,4 +1,4 @@
-const apiKey = 'e91dac7698f7b004a628e488426b6244'; // แทนที่ด้วย API Key จาก OpenWeatherMap
+const apiKey = ' API Key You'; // แทนที่ด้วย API Key จาก OpenWeatherMap
 const weatherInfo = document.getElementById('weather-info');
 const searchBtn = document.getElementById('search-btn');
 const cityInput = document.getElementById('city');
